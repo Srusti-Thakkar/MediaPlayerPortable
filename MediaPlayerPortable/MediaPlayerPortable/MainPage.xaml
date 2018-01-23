@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MediaPlayerPortable"
+             x:Class="MediaPlayerPortable.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button x:Name="btnLoad" Clicked="btnLoad_Clicked"></Button>
+            <ListView x:Name="lstSongsList">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Label x:Name="lblFileName" Text="{Binding Name}"></Label>
+                            <Label x:Name="lblLength" Text="{Binding Length}"></Label>
+                        </StackLayout>
+                    </DataTemplate> 
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
