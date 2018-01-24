@@ -5,15 +5,17 @@
              x:Class="MediaPlayerPortable.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Button x:Name="btnLoad" Clicked="btnLoad_Clicked"></Button>
+            <Button x:Name="btnLoad" Clicked="btnLoad_ClickedAsync"></Button>
             <ListView x:Name="lstSongsList">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Orientation="Horizontal">
-                            <Label x:Name="lblFileName" Text="{Binding Name}"></Label>
-                            <Label x:Name="lblLength" Text="{Binding Length}"></Label>
-                        </StackLayout>
-                    </DataTemplate> 
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblFileName" Text="{Binding Name}"></Label>
+                                <Label x:Name="lblLength" Text="{Binding Length}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>

@@ -15,14 +15,6 @@ namespace MediaPlayerPortable
         public MainPage()
         {
             InitializeComponent();
-            var list = new List<File>();
-
-            list.Add(new File() { Name = "Song 1", Length = 2 });
-            list.Add(new File() { Name = "Song 2", Length = 3 });
-            list.Add(new File() { Name = "Song 3", Length = 4 });
-            list.Add(new File() { Name = "Song 4", Length = 5 });
-
-            lstSongsList.ItemsSource = list;
         }
 
         public async Task<bool> LoadFiles()
@@ -43,9 +35,22 @@ namespace MediaPlayerPortable
             return flag;
         }
 
-        private void btnLoad_Clicked(object sender, EventArgs e)
+        private async void btnLoad_ClickedAsync(object sender, EventArgs e)
         {
-            // var list = DependencyService.Get<ILoadFIles>().GetFiles();
+            //var list = DependencyService.Get<ILoadFIles>().GetFiles();
+            //List<File> fileList = new List<File>();
+            //foreach(var i in list)
+            //{
+            //    fileList.Add(new File()
+            //    {
+            //        Name = i
+            //    });
+            //}
+            //lstSongsList.ItemsSource = fileList;
+
+            var data = await LoadFiles();
         }
+
+        
     }
 }

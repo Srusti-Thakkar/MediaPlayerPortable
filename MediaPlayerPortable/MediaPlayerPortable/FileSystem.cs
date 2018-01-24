@@ -36,7 +36,7 @@ namespace MediaPlayerPortable
         Task<IFolder> GetFolderAsync(string name);
         Task<IList<IFolder>> GetFoldersAsync();
 
-        Task<ExistenceCheckResult> CheckExistsAsync(string name, CancellationToken cancellationToken);
+        Task<ExistenceCheckResult> CheckExistsAsync(string name);
 
         Task DeleteAsync();
     }
