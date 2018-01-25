@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Plugin.FilePicker;
 
 namespace MediaPlayerPortable
 {
@@ -15,40 +16,24 @@ namespace MediaPlayerPortable
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
-        public async Task<bool> LoadFiles()
+       
+
+        private void btnLoad_ClickedAsync(object sender, EventArgs e)
         {
+            var list = DependencyService.Get<ILoadFIles>().GetMediaFiles();
             List<File> fileList = new List<File>();
-            var flag = false;
-
-            var list = FileSystem.Current.LocalStorage;
-            var files = await list.GetFilesAsync();
-            foreach (var file in files)
+            foreach (var i in list)
             {
-                var a = new File();
-                a.Name = file.Name;
-
-                fileList.Add(a);
+                fileList.Add(new File()
+                {
+                    Name = i
+                });
             }
             lstSongsList.ItemsSource = fileList;
-            return flag;
-        }
 
-        private async void btnLoad_ClickedAsync(object sender, EventArgs e)
-        {
-            //var list = DependencyService.Get<ILoadFIles>().GetFiles();
-            //List<File> fileList = new List<File>();
-            //foreach(var i in list)
-            //{
-            //    fileList.Add(new File()
-            //    {
-            //        Name = i
-            //    });
-            //}
-            //lstSongsList.ItemsSource = fileList;
-
-            var data = await LoadFiles();
         }
 
         

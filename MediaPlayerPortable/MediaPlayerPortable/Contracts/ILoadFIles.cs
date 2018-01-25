@@ -9,6 +9,6 @@ namespace MediaPlayerPortable.Contracts
 {
     public interface ILoadFIles
     {
-        List<string> GetFiles();
+        List<string> GetMediaFiles();
     }
 }

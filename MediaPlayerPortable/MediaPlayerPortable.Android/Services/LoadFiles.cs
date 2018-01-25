@@ -14,24 +14,29 @@ using System.Collections.Generic;
 using MediaPlayerPortable.Droid.Services;
 using Xamarin.Forms;
 using Android.Provider;
+using System.Threading.Tasks;
+using System.IO;
+using PCLStorage;
 
 [assembly: Dependency(typeof(LoadFiles))]
 
 namespace MediaPlayerPortable.Droid.Services
 {
     public class LoadFiles : ILoadFIles
-    {
-        public List<string> GetFiles()
+    {  
+
+        public List<string> GetMediaFiles()
         {
-            var files = new List<string>();
-            var documentsPath = Android.OS.Environment.RootDirectory;
-            var list = documentsPath.ListFiles();
-            if (list.Count() > 0)
-                foreach (var file in list)
-                {
-                    files.Add(file.Name);
-                }
-            return files;
+            List<string> filelist = new List<string>();
+            var path = FileSystem.Current.LocalStorage;
+            
+            var files = Directory.EnumerateFiles(path.Name);
+            foreach(var i in files)
+            {
+                filelist.Add(i);
+            }
+            return filelist;
         }
+        
     }
 }
