@@ -30,7 +30,7 @@ namespace MediaPlayerPortable.Droid.Services
             List<string> filelist = new List<string>();
             var path = FileSystem.Current.LocalStorage;
             
-            var files = Directory.EnumerateFiles(path.Name);
+            var files = Directory.GetFiles(path.Name);
             foreach(var i in files)
             {
                 filelist.Add(i);

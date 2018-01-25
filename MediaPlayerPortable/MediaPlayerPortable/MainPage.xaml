@@ -5,7 +5,7 @@
              x:Class="MediaPlayerPortable.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Button x:Name="btnLoad" Clicked="btnLoad_ClickedAsync"></Button>
+            <Button x:Name="btnLoad" BackgroundColor="Blue" TextColor="White" Clicked="btnLoad_ClickedAsync"></Button>
             <ListView x:Name="lstSongsList">
                 <ListView.ItemTemplate>
                     <DataTemplate>
