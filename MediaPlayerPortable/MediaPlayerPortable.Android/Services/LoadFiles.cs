@@ -27,11 +27,24 @@ namespace MediaPlayerPortable.Droid.Services
 
         public List<string> GetMediaFiles()
         {
-            List<string> filelist = new List<string>();
-            var path = FileSystem.Current.LocalStorage;
+            //List<string> filelist = new List<string>();
+            //var path = FileSystem.Current.LocalStorage;
             
-            var files = Directory.GetFiles(path.Name);
-            foreach(var i in files)
+            //var files = Directory.GetFiles(path.Name);
+            //foreach(var i in files)
+            //{
+            //    filelist.Add(i);
+            //}
+            //return filelist;
+
+             List<string> filelist = new List<string>();
+            var path = FileSystem.Current.LocalStorage;
+            //var rootPath = path.Path.Split('0')[0] + "0/";
+            var rootPath = Android.OS.Environment.RootDirectory.Path;
+            // var temp = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryMusic);
+            var temp = Android.OS.Environment.GetExternalStoragePublicDirectory("/");
+            var files = Directory.GetFiles(temp.AbsolutePath, "*.mp3",SearchOption.AllDirectories);
+            foreach (var i in files)
             {
                 filelist.Add(i);
             }
